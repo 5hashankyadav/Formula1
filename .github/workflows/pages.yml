@@ -1,0 +1,70 @@
+name: Deploy static dashboard to Pages
+
+# Free static deploy of the dashboard on GitHub Pages (no card).
+# One-time setup: repo Settings → Pages → Source: "GitHub Actions".
+# Then it runs on demand (Actions tab), every Monday after the race (pulling the
+# latest results + retraining), and on pushes that change the app.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * 1"          # every Monday 06:00 UTC, after the race
+  push:
+    branches: [main]
+    paths: ["web/**", "src/**", ".github/workflows/pages.yml"]
+
+# Least privilege the Pages deploy needs.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never run two deploys at once; let a newer one supersede a queued one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v4
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: uv sync --extra vision
+
+      # Cache FastF1 downloads so scheduled runs don't re-fetch everything.
+      - name: Cache FastF1 data
+        uses: actions/cache@v4
+        with:
+          path: fastf1_cache_dir
+          key: fastf1-${{ github.run_id }}
+          restore-keys: fastf1-
+
+      # Pull the latest race data + retrain. If the fetch fails (FastF1 outage,
+      # rate limit), refresh falls back to the committed data — the deploy still
+      # succeeds, just without brand-new races.
+      - name: Refresh data + models
+        run: uv run f1ml refresh
+
+      - name: Build static site
+        run: uv run f1ml snapshot --out site
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

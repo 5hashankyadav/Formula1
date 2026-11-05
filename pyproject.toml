@@ -1,0 +1,47 @@
+[project]
+name = "f1-ml-project"
+version = "0.2.0"
+description = "Predicting Formula 1 podium finishes from qualifying pace and driver/team form"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastf1>=3.6.1",
+    "flask>=3.1.3",
+    "numpy>=2.3.4",
+    "pandas>=2.3.3",
+    "scikit-learn>=1.7.2",
+]
+
+[project.optional-dependencies]
+# Computer-vision extras for the racing-line analyzer (f1ml raceline).
+# scipy already ships transitively via scikit-learn.
+vision = [
+    "opencv-python-headless>=4.10",
+    "scikit-image>=0.24",
+    "scipy>=1.13",
+]
+
+[project.scripts]
+f1ml = "f1_ml.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+# for the exploration notebooks only: uv sync --group notebooks
+notebooks = [
+    "jupyter>=1.1.1",
+    "jupyterlab>=4.4.10",
+    "seaborn>=0.13.2",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["f1_ml*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
