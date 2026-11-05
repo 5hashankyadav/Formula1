@@ -1,13 +1,13 @@
 # 🏎️ Pit Wall — F1 Podium Intelligence & Race Analytics
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Pit%20Wall%20App-FF1801?style=for-the-badge&logo=formula1&logoColor=white)](http://f1-pitwall.duckdns.org/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Pit%20Wall%20App-FF1801?style=for-the-badge&logo=formula1&logoColor=white)](http://mithil-f1-pitwall.duckdns.org/)
 [![Python](https://img.shields.io/badge/Python-3.12%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![FastF1](https://img.shields.io/badge/Data-FastF1%20API-FF1801?style=for-the-badge)](https://docs.fastf1.dev)
 [![Scikit-Learn](https://img.shields.io/badge/ML-Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-> 🚀 **Live Deployment**: Access the live, self-updating production dashboard at:  
-> **👉 [http://f1-pitwall.duckdns.org/](http://f1-pitwall.duckdns.org/)**
+> 🚀 **Live Deployment**: Access the live, self-updating production dashboard:  
+> **👉 [Launch Pit Wall Live Dashboard 🏎️](http://mithil-f1-pitwall.duckdns.org/)**
 
 **Pit Wall** is an end-to-end Formula 1 machine learning pipeline and telemetry analytics platform built by [**Shashank Yadav**](https://github.com/5hashankyadav). It predicts Grand Prix podium finishes (top 3) from qualifying pace and rolling driver/constructor form using real-time and historical session data (2024–2026) fetched via the [FastF1](https://docs.fastf1.dev) API.
 
@@ -19,7 +19,7 @@ The project ships as both a robust command-line CLI (`f1ml`) and an interactive,
 
 | Production Deployment | Repository |
 | :--- | :--- |
-| 🔗 **[http://f1-pitwall.duckdns.org/](http://f1-pitwall.duckdns.org/)** | 🐙 **[github.com/5hashankyadav/Formula1](https://github.com/5hashankyadav/Formula1)** |
+| 🔗 [**Launch Interactive Live Dashboard**](http://mithil-f1-pitwall.duckdns.org/) | 🐙 [**github.com/5hashankyadav/Formula1**](https://github.com/5hashankyadav/Formula1) |
 
 The live application runs 24/7 with automatic daily background refresh cycles to ingest newly concluded Grand Prix sessions, rebuild features, and retrain the models autonomously.
 
@@ -191,7 +191,7 @@ npx playwright test
 
 - **GitHub**: [@5hashankyadav](https://github.com/5hashankyadav)
 - **Repository**: [https://github.com/5hashankyadav/Formula1](https://github.com/5hashankyadav/Formula1)
-- **Live Application**: [http://f1-pitwall.duckdns.org/](http://f1-pitwall.duckdns.org/)
+- **Live Application**: [**Pit Wall Live Application**](http://mithil-f1-pitwall.duckdns.org/)
 
 ---
 
