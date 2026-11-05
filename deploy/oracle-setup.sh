@@ -4,7 +4,7 @@
 # Works on the Ubuntu or Oracle Linux images Oracle offers.
 #
 # On the VM, run:
-#   curl -fsSL https://raw.githubusercontent.com/Mithilbatra/F1_ML_project/main/deploy/oracle-setup.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/5hashankyadav/Formula1/main/deploy/oracle-setup.sh | bash
 # or, after cloning the repo:
 #   bash deploy/oracle-setup.sh
 #
@@ -13,7 +13,7 @@
 #
 set -euo pipefail
 
-REPO="https://github.com/Mithilbatra/F1_ML_project.git"
+REPO="https://github.com/5hashankyadav/Formula1.git"
 DIR="${PITWALL_DIR:-$HOME/F1_ML_project}"
 PORT="${PORT:-80}"      # public HTTP port
 NAME="pitwall"

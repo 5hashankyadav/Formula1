@@ -59,7 +59,7 @@ ssh -i /path/to/your-private-key.key ubuntu@<PUBLIC_IP>
 Then run the one-liner:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Mithilbatra/F1_ML_project/main/deploy/oracle-setup.sh | bash
+curl -fsSL https://raw.githubusercontent.com/5hashankyadav/Formula1/main/deploy/oracle-setup.sh | bash
 ```
 
 It installs Docker, clones the repo, builds the image, opens the OS firewall,

@@ -3,6 +3,9 @@ name = "f1-ml-project"
 version = "0.2.0"
 description = "Predicting Formula 1 podium finishes from qualifying pace and driver/team form"
 readme = "README.md"
+authors = [
+    { name = "Shashank Yadav" }
+]
 requires-python = ">=3.12"
 dependencies = [
     "fastf1>=3.6.1",

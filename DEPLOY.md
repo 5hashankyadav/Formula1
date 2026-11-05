@@ -25,7 +25,7 @@ docker run --rm -p 5173:5173 pitwall
    > often pennies if it's mostly idle).
 
 2. **Pick a globally-unique app name** — edit `app = "pitwall"` in `fly.toml`
-   (e.g. `pitwall-mithil`), and set `primary_region` to one near you
+   (e.g. `pitwall-f1`), and set `primary_region` to one near you
    (`lhr` London, `ams` Amsterdam, `fra` Frankfurt, `sin` Singapore, `iad` US-east…).
 
 3. **Create the app + deploy:**
